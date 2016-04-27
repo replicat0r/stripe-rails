@@ -15,6 +15,7 @@ gem 'httparty'
 gem 'coffee-rails'
 gem 'brakeman'
 gem 'aasm'
+gem 'paper_trail'
 
 group :development do
   gem 'web-console', '~> 2.0'
