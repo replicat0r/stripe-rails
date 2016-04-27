@@ -14,10 +14,12 @@ gem 'figaro'
 gem 'httparty'
 gem 'coffee-rails'
 gem 'brakeman'
+gem 'aasm'
 
 group :development do
-	  gem 'web-console', '~> 2.0'
-	    gem 'rails_best_practices'
+  gem 'web-console', '~> 2.0'
+  gem 'rails_best_practices'
+  gem 'quiet_assets'
 
 
 end
@@ -25,7 +27,7 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
- 	gem 'stripe-ruby-mock'
+  gem 'stripe-ruby-mock'
   gem 'database_cleaner'
   gem 'mocha'
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -35,6 +37,6 @@ group :development, :test do
 end
 
 group :production do
-	gem 'rails_12factor', group: :production
+  gem 'rails_12factor', group: :production
 
 end

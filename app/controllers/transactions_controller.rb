@@ -12,30 +12,25 @@ class TransactionsController < ApplicationController
 
   def create
     @product = Product.find_by!(permalink: params[:permalink])
-    token = params[:stripeToken]
 
-    begin
-      charge = Stripe::Charge.create(
-        amount: product.price,
-        currency: 'USD',
-        source: token,
-        description: params[:stripeEmail]
-      )
-      @sale = product.sales.create!(
-        email: params[:stripeEmail],
-        stripe_id: charge.id
-      )
-      redirect_to pickup_url(guid: @sale.guid)
+    sale = @product.sales.create(
+      amount: @product.price,
+      email: params[:email],
+      stripe_token: params[:stripeToken]
+    )
+    sale.process!
+    if sale.finished?
+      redirect_to pickup_url(guid: sale.guid)
 
-    rescue Stripe::CardError => e
-      @error = e
+    else
+      flash.now[:alert] = sale.error
       render :new
     end
 
   end
 
   def download
-  	@sale = Sale.find_by!(guid:params[:permalink])
+    @sale = Sale.find_by!(guid:params[:permalink])
     resp = HTTParty.get(@sale.product.file.url)
     filename = @sale.product.file.url
     send_data resp.body,
