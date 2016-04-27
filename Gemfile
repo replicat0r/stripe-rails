@@ -13,9 +13,12 @@ gem 'stripe', '~> 1.26.0'
 gem 'figaro'
 gem 'httparty'
 gem 'coffee-rails'
+gem 'brakeman'
 
 group :development do
 	  gem 'web-console', '~> 2.0'
+	    gem 'rails_best_practices'
+
 
 end
 
