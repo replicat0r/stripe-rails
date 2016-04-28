@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   get  '/pickup/:guid',   to: 'transactions#pickup',   as: :pickup
   get  '/download/:guid', to: 'transactions#download', as: :download
 
+  mount StripeEvent::Engine => '/stripe-events'
+
+
 end

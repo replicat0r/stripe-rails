@@ -16,6 +16,8 @@ gem 'coffee-rails'
 gem 'brakeman'
 gem 'aasm'
 gem 'paper_trail'
+gem 'stripe_event'
+
 
 group :development do
   gem 'web-console', '~> 2.0'
