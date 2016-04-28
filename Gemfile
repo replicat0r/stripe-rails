@@ -3,7 +3,6 @@ source 'https://code.stripe.com'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-gem 'sqlite3'
 gem 'devise'
 gem 'paperclip', '~> 4.2.1'
 gem 'sass-rails', '~> 5.0'
@@ -25,6 +24,7 @@ group :development do
   gem 'quiet_assets'
 
 
+
 end
 
 group :development, :test do
@@ -33,6 +33,8 @@ group :development, :test do
   gem 'stripe-ruby-mock'
   gem 'database_cleaner'
   gem 'mocha'
+  gem 'sqlite3'
+
   # Access an IRB console on exception pages or by using <%= console %> in views
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -40,6 +42,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'rails_12factor', group: :production
-
+  gem 'rails_12factor'
+  gem 'pg', '~> 0.18.4'
 end
