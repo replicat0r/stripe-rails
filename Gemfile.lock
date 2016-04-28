@@ -126,6 +126,7 @@ GEM
       activesupport (>= 3.2.0)
       cocaine (~> 0.5.5)
       mime-types
+    pg (0.18.4)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -244,6 +245,7 @@ DEPENDENCIES
   mocha
   paper_trail
   paperclip (~> 4.2.1)
+  pg (~> 0.18.4)
   quiet_assets
   rails (= 4.2.3)
   rails_12factor
