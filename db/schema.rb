@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427020101) do
+ActiveRecord::Schema.define(version: 20160428230256) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 20160427020101) do
   end
 
   add_index "sales", ["product_id"], name: "index_sales_on_product_id"
+
+  create_table "stripe_webhooks", force: :cascade do |t|
+    t.string   "stripe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
